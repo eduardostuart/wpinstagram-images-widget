@@ -2,7 +2,7 @@
 Tags: wordpress,instagram,crawler,widget
 Requires at least: 3.5
 Tested up to: 3.6 beta 3
-Stable tag: 1.0
+Stable tag: 1.1
 
 Instagram Images Widget get your most recent activity at Instagram and display them in a Widget.
 
