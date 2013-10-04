@@ -16,3 +16,10 @@ You can either install it automatically from the WordPress admin, or do it manua
 
 1. Unzip the archive and put the `wp-instagram-images-widget` folder into your plugins folder (/wp-content/plugins/).
 2. Activate the plugin from the Plugins menu.
+3. Go to `Appearance` -> `Widgets` to see your new widget (Search for `WP Instagram Images Widget`)
+
+
+== Screenshots ==
+
+1. Example
+2. Widget
