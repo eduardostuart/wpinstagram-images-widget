@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 class WPInstagramImagesWidget extends WP_Widget{
 
 	public function __construct() {

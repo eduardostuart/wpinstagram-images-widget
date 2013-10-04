@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 
 function wpinstagram_cache_set( $key, $values , $lifetime = 300 ){
 
