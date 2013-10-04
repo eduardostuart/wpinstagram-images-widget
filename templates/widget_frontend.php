@@ -25,7 +25,7 @@ if(isset($new_tab) && $new_tab == true){
 
 			$text    = esc_attr($item['text']);
 			$link    = $item['link'];
-			$image   = $item['image'];
+			$image   = ( defined('WPINSTAGRAM_URL_CACHE') ? WPINSTAGRAM_URL_CACHE  : '' ) . $item['image'];
 		
 		?>
 		<li>

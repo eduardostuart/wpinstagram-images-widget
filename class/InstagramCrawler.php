@@ -4,9 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class InstagramCrawler{
 
-	const USERAGENT       = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36';
 	const INSTAGRAM_URL   = 'http://instagram.com/';
-
 
 	public static function get( $username ){
 
@@ -18,7 +16,11 @@ class InstagramCrawler{
 
 		$Instagram = new static;
 		$data      = $Instagram->request( $url );
-		$parsed    = $Instagram->parse( $data );
+
+		$parsed = array();
+		if( !is_null($data)){
+			$parsed  = $Instagram->parse( $data );
+		}
 
 		return $parsed;
 	}
@@ -26,22 +28,13 @@ class InstagramCrawler{
 
 	protected function request( $url ){
 
-		$response = null;
+		$response = wp_remote_get($url,array('timeout'=>60));
 
-		$ch = curl_init();
-		if( $ch ){
-
-			$options[CURLOPT_URL]            = $url;
-			$options[CURLOPT_RETURNTRANSFER] = true;
-			$options[CURLOPT_HEADER]         = false;
-			$options[CURLOPT_USERAGENT]      = self::USERAGENT;
-
-			curl_setopt_array($ch, $options);
-			$response = curl_exec($ch);
-			curl_close($ch);
+		if( $response['response']['code'] === 200 ){
+			return $response['body'];
 		}
 
-		return $response;
+		return null;
 	}
 
 	private function parse( $htmlcode ){
@@ -88,6 +81,9 @@ class InstagramCrawler{
 						$created_time = $caption['created_time'];
 						$text         = $caption['text'];
 
+						$fileformat   = end(explode('.',$image));
+						$image        = $this->download_image($image , md5($id) . '.' . $fileformat );
+
 						array_push($images, array(
 							'id'          => $id,
 							'created_time'=> $created_time,
@@ -101,6 +97,31 @@ class InstagramCrawler{
 		}
 
 		return $images;
+	}
+
+	private function download_image( $url , $file ){
+
+		wp_mkdir_p( WPINSTAGRAM_PATH_CACHE );
+
+		$filename  = WPINSTAGRAM_PATH_CACHE . $file;
+
+		if(file_exists($filename)){
+			return $file;
+		}
+
+		$get       = wp_remote_get( $url );
+		$body      = wp_remote_retrieve_body( $get );
+
+		$fp = @fopen( $filename , 'wb');
+		if($fp){
+			fwrite($fp,$body);
+			fclose($fp);
+			clearstatcache();
+
+			return $file;
+		}
+
+		return $url;
 	}
 
 

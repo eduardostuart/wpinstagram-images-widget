@@ -16,7 +16,12 @@ function wpinstagram_cache_set( $key, $values , $lifetime = 300 ){
 	return $values;
 }
 
+
 function wpinstagram_cache_get( $key ){
+
+	if( !WPINSTAGRAM_CACHE_ENABLED ){
+		return null;
+	}
 
 	$cached = get_option( $key );
 
