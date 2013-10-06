@@ -39,7 +39,6 @@ function wpinstagram_cache_get( $key ){
 		return null;
 	}
 
-
 	if( $cached['expires'] > time() ){
 		return $cached['values'];
 	}
