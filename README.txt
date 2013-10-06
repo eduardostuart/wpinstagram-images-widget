@@ -14,7 +14,7 @@ No need to create an application on Instagram, just your username.
 
 = Supporting future development =
 
-If you like the WPInstagram Images Widget plugin, please rate and review it here in the WordPress Plugin Directory, support it with your [donation](http://goo.gl/Kdkpag `donation`). Thank you!
+If you like the WPInstagram Images Widget plugin, please rate and review it here in the WordPress Plugin Directory, support it with your [donation](http://goo.gl/Kdkpag "donation"). Thank you!
 
 
 == Installation ==
