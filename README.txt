@@ -1,8 +1,8 @@
 === WPInstagram Images Widget ===
-Tags: wordpress, instagram, crawler, widget, instagram widget, social, instagram platform, sidebar
+Tags: wordpress, instagram, crawler, widget, instagram widget, social, instagram platform, sidebar,shortcode
 Requires at least: 3.5
 Tested up to: 3.6 beta 3
-Stable tag: 1.1
+Stable tag: 1.2.2
 
 Instagram Images Widget get your most recent activity at Instagram and display them in a Widget.
 
@@ -12,9 +12,35 @@ Instagram Images Widget get your most recent activity at Instagram and display t
 
 No need to create an application on Instagram, just your username.
 
+
+= Shortcode =
+
+Parameters
+
+1. username **(required)** - Your instagram username;
+1. show     **(optional - default: 1)** - Number of images to show
+1. show_description **(optional - default: 0)** - Turn on/off images description (Use: 0 to hide, 1 to show)
+1. target **(optional - default: _blank)** Open images in new tab?
+1. image_size **(optional - default: 100x100)** Image size (width x height)
+
+**Shortcode Examples**
+
+Show only 1 image: *[wpinstagram_images username="@youusername"]*
+
+Show 5 images: *[wpinstagram_images username="@youusername" show=5]*
+
+Show 5 images and descriptions: *[wpinstagram_images username="@youusername" show=5 show_description=1]*
+
+Show 5 images, descriptions and change the image size to 300 (width) x 300 (height): *[wpinstagram_images username="@youusername" show=5 show_description=1 image_size="300x300"]*
+
+
 = Supporting future development =
 
-If you like the WPInstagram Images Widget plugin, please rate and review it here in the WordPress Plugin Directory, support it with your [donation](http://goo.gl/Kdkpag "donation"). Thank you!
+If you like the WPInstagram Images Widget plugin, please rate and review it here in the WordPress Plugin Directory, support it with your [donation](http://goo.gl/Kdkpag "donation") . Thank you!
+
+= Need Support? =
+
+Follow me on [Instagram](http://instagram.com/eduardostuart) or [Twitter](http://twitter.com/eduardostuart).
 
 
 == Installation ==
@@ -30,4 +56,10 @@ You can either install it automatically from the WordPress admin, or do it manua
 
 1. Example
 2. Widget
+3. Shortcode
 
+== Changelog ==
+
+v1.2.1 - Portuguese-BR Translation
+
+v1.2   - Bugfixes and new shortcodes;

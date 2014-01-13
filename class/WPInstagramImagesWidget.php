@@ -41,7 +41,7 @@ class WPInstagramImagesWidget extends WP_Widget{
 				}
 
 				$values = array();
-				for($i=0;$i<$instance['number_of_thumbs'];$i++){
+				for( $i=0; $i<$instance['number_of_thumbs']; $i++ ){
 					$values[] = $images[$i];
 				}
 

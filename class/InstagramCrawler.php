@@ -38,17 +38,21 @@ class InstagramCrawler{
 	}
 
 	private function parse( $htmlcode ){
+
 		$html = str_get_html( $htmlcode );
 
-		$script = null;
-		$images = array();
+		$script  = null;
+		$images  = array();
+		$scripts = $html->find('script');
 
-		foreach ($html->find('script') as $item) {
+		if( sizeof( $scripts) > 0 ){
+			foreach( $scripts as $item){
 
-			if(!is_null($script)) break;
+				if(!is_null($script)) break;
 
-			if( preg_match("#(window\._jscalls)#i",$item->innertext) ){
-				$script = $item->innertext;
+				if( preg_match("#(window\._jscalls)#i",$item->innertext) ){
+					$script = $item->innertext;
+				}
 			}
 		}
 
@@ -69,7 +73,7 @@ class InstagramCrawler{
 				}
 
 				if(is_array($results)){
-					foreach ($results as $current=>$result) {
+					foreach( $results as $current=>$result ) {
 
 						if($current > 5) break;
 
@@ -81,16 +85,24 @@ class InstagramCrawler{
 						$created_time = $caption['created_time'];
 						$text         = $caption['text'];
 
-						$fileformat   = end(explode('.',$image));
-						$image        = $this->download_image($image , md5($id) . '.' . $fileformat );
+						$filename_data= explode('.',$image);
 
-						array_push($images, array(
-							'id'          => $id,
-							'created_time'=> $created_time,
-							'text'        => $text,
-							'image'       => $image,
-							'link'        => $link
-						));
+						if( is_array($filename_data) ){
+
+							$fileformat   = end( $filename_data );
+
+							if( $fileformat !== false ){
+								$image = $this->download_image($image , md5($id) . '.' . $fileformat );
+
+								array_push($images, array(
+									'id'          => $id,
+									'created_time'=> $created_time,
+									'text'        => $text,
+									'image'       => $image,
+									'link'        => $link
+								));
+							}
+						}
 					}
 				}
 			}

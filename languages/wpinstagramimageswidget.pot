@@ -1,0 +1,55 @@
+# Copyright (C) 2014 WP Instagram Images Widget
+# This file is distributed under the same license as the WP Instagram Images Widget package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Instagram Images Widget 1.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wpinstagram-images-widget\n"
+"POT-Creation-Date: 2014-01-13 04:28:17+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-01-13 02:32-0300\n"
+"Last-Translator: Eduardo <stuart.eduardo@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#. #-#-#-#-#  plugin.pot (WP Instagram Images Widget 1.2)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: class/WPInstagramImagesWidget.php:10
+msgid "WP Instagram Images Widget"
+msgstr ""
+
+#: class/WPInstagramImagesWidget.php:12
+msgid "Easy way to show instagram images"
+msgstr "Uma maneira fácil de exibir imagens do Instagram"
+
+#: templates/widget_form.php:3
+msgid "Title:"
+msgstr "Título"
+
+#: templates/widget_form.php:8
+msgid "Instagram Username:"
+msgstr "Usuário do Instagram:"
+
+#: templates/widget_form.php:13
+msgid "Thumbnail Size:"
+msgstr "Tamanho da miniatura:"
+
+#: templates/widget_form.php:14
+msgid "Ex.: 100x100"
+msgstr ""
+
+#: templates/widget_form.php:18
+msgid "How many images would you like to display?"
+msgstr "Quantas imagens você gostaria de exibir?"
+
+#: templates/widget_form.php:27
+msgid "Open image in new tab?"
+msgstr "Abrir em nova aba?"
+
+#. Description of the plugin/theme
+msgid ""
+"Instagram Images Widget get your most recent activity at Instagram and "
+"display them in a Widget."
+msgstr ""
+"Instagram Images Widget captura a sua atividade mais recente no Instagram e "
+"exibe em um Widget."

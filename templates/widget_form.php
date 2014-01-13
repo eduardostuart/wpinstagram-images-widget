@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 <p>
 	<label for="<?php echo $field['title']['id']; ?>"><?php _e( 'Title:' , WPINSTAGRAM_TXT_DOMAIN ); ?></label>
 	<input class="widefat" id="<?php echo $field['title']['id']; ?>" name="<?php echo $field['title']['name']; ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
@@ -25,4 +26,10 @@
 <p>
 	<label for="<?php echo $field['new_tab']['id']; ?>"><?php _e( 'Open image in new tab?' , WPINSTAGRAM_TXT_DOMAIN ); ?></label> 
 	<input type="checkbox" name="<?php echo $field['new_tab']['name']; ?>" id="<?php echo $field['new_tab']['id']; ?>" value="1"<?php echo ($new_tab == true ? ' checked ' : ''); ?>>
+</p>
+
+<p>
+	<a href="http://instagram.com/eduardostuart" target="blank" class="button-primary">Follow me on Instagram?</a>
+	<br>
+	<small>@eduardostuart</small>
 </p>

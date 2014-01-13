@@ -53,8 +53,17 @@ function wpinstagram_widget_content( $username ){
 
 	$data = wpinstagram_cache_get($key);
 
-	if( is_null($data) ){
-		return wpinstagram_cache_set( $key , InstagramCrawler::get($username) );
+	if( is_null($data) || empty($data) ){
+
+		$cache_time_minutes = defined('WPINSTAGRAM_CACHE_TIME') ? WPINSTAGRAM_CACHE_TIME : 10;
+
+		if( $cache_time_minutes < 1 ){
+			$cache_time_minutes = 10;
+		}
+
+		$cache_time = $cache_time_minutes * 60;
+
+		return wpinstagram_cache_set( $key , InstagramCrawler::get($username), $cache_time );
 	}
 
 	return $data;
