@@ -45,6 +45,8 @@ function wpinstagram_images( $atts ){
     	}
     }
 
+    ob_start();
+
     _wpinstagram_template( 'shortcode_images' , array(
     	'images' => $images_to_show,
     	'target' => $target,
@@ -52,5 +54,8 @@ function wpinstagram_images( $atts ){
     	'width'  => $width,
     	'height' => $height
     ));
+
+    $output = ob_get_clean();
+    return $output;
 
 }
