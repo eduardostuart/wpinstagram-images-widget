@@ -29,6 +29,13 @@
 </p>
 
 <p>
+	<label for="<?php echo $field['show_description']['id']; ?>"><?php _e( 'Show Image Description?' , WPINSTAGRAM_TXT_DOMAIN ); ?></label> 
+	<input type="checkbox" name="<?php echo $field['show_description']['name']; ?>" id="<?php echo $field['show_description']['id']; ?>" value="1"<?php echo ($show_description == true ? ' checked ' : ''); ?>>
+</p>
+
+
+
+<p>
 	<a href="http://instagram.com/eduardostuart" target="blank" class="button-primary">Follow me on Instagram?</a>
 	<br>
 	<small>@eduardostuart</small>

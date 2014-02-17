@@ -8,6 +8,8 @@ class InstagramCrawler{
 
 	public static function get( $username ){
 
+		$username = preg_replace('/[@\s]/','',$username);
+
 		if( empty($username) ){
 			return;
 		}
@@ -50,8 +52,10 @@ class InstagramCrawler{
 
 				if(!is_null($script)) break;
 
-				if( preg_match("#(window\._jscalls)#i",$item->innertext) ){
+			
+				if( preg_match("/(window\.(_jscalls|_sharedData))/i",$item->innertext) ){
 					$script = $item->innertext;
+					break;
 				}
 			}
 		}
@@ -59,21 +63,34 @@ class InstagramCrawler{
 
 		if( !is_null($script) ){
 
-			preg_match_all("#(\"userMedia\"\:)(\[)(.*?)(\]\,\"prerelease\")#isU",$script,$matches);
+
+			preg_match_all('/(window\._(sharedData|jscall)[\s=]+[^{\"](.*?\})(\;))/isU',$script,$matches);
 
 			$data  = isset($matches[3][0]) ? $matches[3][0] : null;
 
 			if( !is_null($data) ){
 
-				$results_json = "[".$data."]";
-				$results      = json_decode($results_json,true);
+				$results  = json_decode($data,true);
 
 				if(json_last_error() !== JSON_ERROR_NONE){
 					return;
 				}
 
-				if(is_array($results)){
-					foreach( $results as $current=>$result ) {
+				if(!isset($results['entry_data']['UserProfile'][0])){
+					return;
+				}
+
+				$userProfile = $results['entry_data']['UserProfile'][0];
+
+				if(!isset($userProfile['userMedia'])){
+					return;
+				}
+
+				$userMedia = $userProfile['userMedia'];
+
+
+				if(isset($userMedia) && is_array($userMedia)){
+					foreach( $userMedia as $current=>$result ) {
 
 						if($current > 5) break;
 

@@ -52,6 +52,8 @@ class WPInstagramImagesWidget extends WP_Widget{
 		if(!empty($instance['thumbnail_size'])){
 			$params['thumbnail_size'] = explode('x',$instance['thumbnail_size']);
 		}
+
+		$params['show_description'] = isset($instance['show_description']) ? $instance['show_description'] : true;
 		
 		$params['new_tab'] = $instance['new_tab'];
 
@@ -65,6 +67,7 @@ class WPInstagramImagesWidget extends WP_Widget{
  		$thumbnail_size     = isset($instance['thumbnail_size']) ? trim($instance['thumbnail_size']) : '';
  		$number_of_thumbs   = isset($instance['number_of_thumbs']) ? (int) $instance['number_of_thumbs'] : 1;
  		$new_tab            = isset($instance['new_tab']) ?  (boolean) $instance['new_tab'] : true;
+ 		$show_description   = isset($instance['show_description']) ? (boolean) $instance['show_description'] : true;
 
  		$params = array();
  		$params['title']  = $title;
@@ -87,8 +90,12 @@ class WPInstagramImagesWidget extends WP_Widget{
  				'name' => $this->get_field_name('number_of_thumbs')
  			),
  			'new_tab' => array(
- 				'id'  => $this->get_field_id('new_tab'),
+ 				'id'   => $this->get_field_id('new_tab'),
  				'name' => $this->get_field_name('new_tab')
+ 			),
+ 			'show_description'=>array(
+ 				'id'   => $this->get_field_id('show_description'),
+ 				'name' => $this->get_field_name('show_description')
  			)
  		);
 
@@ -96,6 +103,7 @@ class WPInstagramImagesWidget extends WP_Widget{
  		$params['thumbnail_size']     = $thumbnail_size;
  		$params['number_of_thumbs']   = $number_of_thumbs;
  		$params['new_tab']            = $new_tab;
+ 		$params['show_description']   = $show_description;
 
 
  		_wpinstagram_template( 'widget_form' , $params );
@@ -110,6 +118,7 @@ class WPInstagramImagesWidget extends WP_Widget{
 		$instance['thumbnail_size']     = ( ! empty( $new_instance['thumbnail_size'] ) ) ? trim(strip_tags($new_instance['thumbnail_size'])) : '';
 		$instance['number_of_thumbs']   = isset($new_instance['number_of_thumbs']) ? (int) $new_instance['number_of_thumbs'] : 1;
 		$instance['new_tab']            = isset($new_instance['new_tab']) ? (boolean) $new_instance['new_tab'] : false;
+		$instance['show_description']   = isset($new_instance['show_description']) ? (boolean) $new_instance['show_description'] : false;
 
 		return $instance;
 	}

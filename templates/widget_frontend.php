@@ -4,7 +4,7 @@
 <?php
 $width = $height = 150;
 
-if(is_array($thumbnail_size)){
+if(isset($thumbnail_size) && is_array($thumbnail_size)){
 	list($width,$height) = $thumbnail_size;
 }
 
@@ -30,9 +30,11 @@ if(isset($new_tab) && $new_tab == true){
 		<li>
 			<a href="<?php echo $link; ?>" target="<?php echo $target; ?>">
 				<img src="<?php echo $image; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" alt="<?php echo  $text ; ?>"/>
-				<p>
-					<?php echo $text; ?>
-				</p>
+				<?php if($show_description): ?>
+					<p>
+						<?php echo $text; ?>
+					</p>
+				<?php endif; ?>
 			</a>
 		</li>
 	<?php endforeach; ?>
