@@ -26,23 +26,41 @@ Parameters
 
 **Shortcode Examples**
 
-Show only 1 image: *[wpinstagram_images username="@youusername"]*
+1. Show only 1 image:
 
-Show 5 images: *[wpinstagram_images username="@youusername" show=5]*
+[wpinstagram_images username="@youusername"]
 
-Show 5 images and descriptions: *[wpinstagram_images username="@youusername" show=5 show_description=1]*
+1. Show 5 images:
 
-Show 5 images, descriptions and change the image size to 300 (width) x 300 (height): *[wpinstagram_images username="@youusername" show=5 show_description=1 image_size="300x300"]*
+[wpinstagram_images username="@youusername" show=5]
 
-Show inline photos: *[wpinstagram_images username="@eduardostuart" show="2" horizontal_list=1]*
+1. Show 5 images and descriptions:
+
+[wpinstagram_images username="@youusername" show=5 show_description=1]
+
+1. Show 5 images, descriptions and change the image size to 300 (width) x 300 (height):
+
+[wpinstagram_images username="@youusername" show=5 show_description=1 image_size="300x300"]
+
+1. Show inline photos:
+
+[wpinstagram_images username="@eduardostuart" show="2" horizontal_list=1]
 
 = CSS (Shortcode , Widget ) =
 
-.wpinstagram{ }
+
+
+.wpinstagram{}
+
+
 .wpinstagram.wpinstagram-shortcode img, .wpinstagram.wpinstagram-widget img{ }
 
+
+
 .wpinstagram.wpinstagram-shortcode--horizontal .wpinstagram-shortcode-item,
-.wpinstagram.wpinstagram-widget--horizontal .wpinstagram-widget-item { }
+.wpinstagram.wpinstagram-widget--horizontal .wpinstagram-widget-item {}
+
+
 
 
 = Supporting future development =
