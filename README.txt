@@ -49,6 +49,10 @@ Show inline photos: *[wpinstagram_images username="@eduardostuart" show="2" hori
 
 If you like the WPInstagram Images Widget plugin, please rate and review it here in the WordPress Plugin Directory, support it with your [donation](http://goo.gl/Kdkpag "donation") . Thank you!
 
+= Thanks to... =
+
+[jesstech](https://github.com/jesstech) - [Github pull](https://github.com/eduardostuart/wpinstagram-images-widget/pull/1)
+
 = Need Support? =
 
 Follow me on [Instagram](http://instagram.com/eduardostuart) or [Twitter](http://twitter.com/eduardostuart).
