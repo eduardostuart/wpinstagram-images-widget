@@ -213,11 +213,11 @@ class InstagramCrawler {
 				);
 
 
-			}catch(WPICouldNotCreateImageDirectoryException $e )
+			}catch( WPICouldNotCreateImageDirectoryException $e )
 			{
 				return null;
 
-			}catch(WPICouldNotCreateLocalImageException $e )
+			}catch( WPICouldNotCreateLocalImageException $e )
 			{
 				return null;
 			}

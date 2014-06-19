@@ -1,7 +1,7 @@
 === WPInstagram Images Widget ===
 Tags: wordpress, instagram, crawler, widget, instagram widget, social, instagram platform, sidebar,shortcode
 Requires at least: 3.5
-Tested up to: 3.6 beta 3
+Tested up to: 4.0-alpha-20140604
 Stable tag: 2.0.1
 
 Instagram Images Widget get your most recent activity at Instagram and display them in a Widget.

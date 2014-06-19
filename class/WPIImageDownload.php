@@ -65,6 +65,12 @@ class WPIImageDownload {
 
     protected function createLocalImage( $body )
     {
+
+        if( empty( $body ) )
+        {
+            throw new WPICouldNotCreateLocalImageException(__('Could not create local image',WPINSTAGRAM_TXT_DOMAIN));
+        }
+
         $fp = @fopen( $this->getImageFile() , 'wb');
 
         if( !$fp )
