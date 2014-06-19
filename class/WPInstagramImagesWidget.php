@@ -2,19 +2,21 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class WPInstagramImagesWidget extends WP_Widget{
+class WPInstagramImagesWidget extends WP_Widget {
 
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct(
 			'wpinstagramimageswidget',
 			__('WP Instagram Images Widget', WPINSTAGRAM_TXT_DOMAIN),
-			array( 
+			array(
 				'description' => __('Easy way to show instagram images', WPINSTAGRAM_TXT_DOMAIN),
 			)
 		);
 	}
 
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance )
+	{
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
 
@@ -25,23 +27,28 @@ class WPInstagramImagesWidget extends WP_Widget{
 		$params['after_widget']  = $args['after_widget'];
 		$params['after_title']   = $args['after_title'];
 
-		$params['title']         = $instance['title'];
+		$params['title'] 		 = $instance['title'];
 
-		if(isset($instance['instagram_username'])){
-			$images = wpinstagram_widget_content($instance['instagram_username']);
+		if( isset( $instance['instagram_username'] ) )
+		{
+			$images = wpinstagram_widget_content( $instance['instagram_username'] );
 
-			if(sizeof($images)>0){
+			if( sizeof($images)>0 )
+			{
 
-				if(!isset($instance['number_of_thumbs'])){
+				if( !isset($instance['number_of_thumbs']) || $instance['number_of_thumbs'] < 1 )
+				{
 					$instance['number_of_thumbs'] = 1;
 				}
 
-				if($instance['number_of_thumbs'] > 5){
-					$instance['number_of_thumbs'] = 5;
+				if($instance['number_of_thumbs'] > WPINSTAGRAM_MAX_IMAGES)
+				{
+					$instance['number_of_thumbs'] = WPINSTAGRAM_MAX_IMAGES;
 				}
 
 				$values = array();
-				for( $i=0; $i<$instance['number_of_thumbs']; $i++ ){
+
+				for( $i=0; $i < $instance['number_of_thumbs']; $i++ ){
 					$values[] = $images[$i];
 				}
 
@@ -49,18 +56,20 @@ class WPInstagramImagesWidget extends WP_Widget{
 			}
 		}
 
-		if(!empty($instance['thumbnail_size'])){
+		if(!empty($instance['thumbnail_size']))
+		{
 			$params['thumbnail_size'] = explode('x',$instance['thumbnail_size']);
 		}
 
 		$params['show_description'] = isset($instance['show_description']) ? $instance['show_description'] : true;
-		
 		$params['new_tab'] = $instance['new_tab'];
+		$params['horizontal_list'] = $instance['horizontal_list'];
 
 		_wpinstagram_template( 'widget_frontend' , $params );
 	}
 
- 	public function form( $instance ) {
+ 	public function form( $instance )
+ 	{
 
  		$title              = isset($instance['title']) ? trim($instance['title']) : '';
  		$instagram_username = isset($instance['instagram_username']) ? trim($instance['instagram_username']) : '';
@@ -68,6 +77,7 @@ class WPInstagramImagesWidget extends WP_Widget{
  		$number_of_thumbs   = isset($instance['number_of_thumbs']) ? (int) $instance['number_of_thumbs'] : 1;
  		$new_tab            = isset($instance['new_tab']) ?  (boolean) $instance['new_tab'] : true;
  		$show_description   = isset($instance['show_description']) ? (boolean) $instance['show_description'] : true;
+ 		$horizontal_list    = isset($instance['horizontal_list']) ? (boolean) $instance['horizontal_list'] : false;
 
  		$params = array();
  		$params['title']  = $title;
@@ -83,7 +93,7 @@ class WPInstagramImagesWidget extends WP_Widget{
  			),
  			'thumbnail_size' => array(
  				'id'   => $this->get_field_id('thumbnail_size'),
- 				'name' => $this->get_field_name('thumbnail_size')	
+ 				'name' => $this->get_field_name('thumbnail_size')
  			),
  			'number_of_thumbs'=>array(
  				'id'   => $this->get_field_id('number_of_thumbs'),
@@ -93,9 +103,13 @@ class WPInstagramImagesWidget extends WP_Widget{
  				'id'   => $this->get_field_id('new_tab'),
  				'name' => $this->get_field_name('new_tab')
  			),
- 			'show_description'=>array(
+ 			'show_description' => array(
  				'id'   => $this->get_field_id('show_description'),
  				'name' => $this->get_field_name('show_description')
+ 			),
+ 			'horizontal_list' => array(
+ 				'id'    => $this->get_field_id('horizontal_list'),
+ 				'name'  => $this->get_field_name('horizontal_list')
  			)
  		);
 
@@ -104,12 +118,14 @@ class WPInstagramImagesWidget extends WP_Widget{
  		$params['number_of_thumbs']   = $number_of_thumbs;
  		$params['new_tab']            = $new_tab;
  		$params['show_description']   = $show_description;
+ 		$params['horizontal_list']    = $horizontal_list;
 
 
  		_wpinstagram_template( 'widget_form' , $params );
 	}
 
-	public function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance )
+	{
 
 		$instance = array();
 
@@ -119,6 +135,14 @@ class WPInstagramImagesWidget extends WP_Widget{
 		$instance['number_of_thumbs']   = isset($new_instance['number_of_thumbs']) ? (int) $new_instance['number_of_thumbs'] : 1;
 		$instance['new_tab']            = isset($new_instance['new_tab']) ? (boolean) $new_instance['new_tab'] : false;
 		$instance['show_description']   = isset($new_instance['show_description']) ? (boolean) $new_instance['show_description'] : false;
+		$instance['horizontal_list']    = isset($new_instance['horizontal_list']) ? (boolean) $new_instance['horizontal_list'] : false;
+
+		WPICache::delete( 'wpi_' . $instance['instagram_username']  );
+
+		if( !empty($instance['instagram_username']) )
+		{
+			wpinstagram_widget_content( $instance['instagram_username'] );
+		}
 
 		return $instance;
 	}

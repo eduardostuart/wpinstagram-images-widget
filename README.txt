@@ -2,7 +2,7 @@
 Tags: wordpress, instagram, crawler, widget, instagram widget, social, instagram platform, sidebar,shortcode
 Requires at least: 3.5
 Tested up to: 3.6 beta 3
-Stable tag: 1.2.6
+Stable tag: 2.0.1
 
 Instagram Images Widget get your most recent activity at Instagram and display them in a Widget.
 
@@ -22,6 +22,7 @@ Parameters
 1. show_description **(optional - default: 0)** - Turn on/off images description (Use: 0 to hide, 1 to show)
 1. target **(optional - default: _blank)** Open images in new tab?
 1. image_size **(optional - default: 100x100)** Image size (width x height)
+1. horizontal_list **(optional - default: 0)** - Turn on/off inline photos
 
 **Shortcode Examples**
 
@@ -32,6 +33,16 @@ Show 5 images: *[wpinstagram_images username="@youusername" show=5]*
 Show 5 images and descriptions: *[wpinstagram_images username="@youusername" show=5 show_description=1]*
 
 Show 5 images, descriptions and change the image size to 300 (width) x 300 (height): *[wpinstagram_images username="@youusername" show=5 show_description=1 image_size="300x300"]*
+
+Show inline photos: *[wpinstagram_images username="@eduardostuart" show="2" horizontal_list=1]*
+
+= CSS (Shortcode , Widget ) =
+
+.wpinstagram{ }
+.wpinstagram.wpinstagram-shortcode img, .wpinstagram.wpinstagram-widget img{ }
+
+.wpinstagram.wpinstagram-shortcode--horizontal .wpinstagram-shortcode-item,
+.wpinstagram.wpinstagram-widget--horizontal .wpinstagram-widget-item { }
 
 
 = Supporting future development =
@@ -52,6 +63,7 @@ You can either install it automatically from the WordPress admin, or do it manua
 3. Go to `Appearance` -> `Widgets` to see your new widget (Search for `WPInstagram Images Widget`)
 4. That's it! You're ready to go!
 
+
 == Screenshots ==
 
 1. Example
@@ -60,9 +72,11 @@ You can either install it automatically from the WordPress admin, or do it manua
 
 == Changelog ==
 
+v.2.0.1 - Bugfixes; New option to display inline photos; Better image load/download;
+
 v.1.2.6 - Bugfix
 
-v.1.2.5 - Bugfix 
+v.1.2.5 - Bugfix
 
 v.1.2.4 - [Bugfix](http://wordpress.org/support/topic/triggered-a-fatal-error-on-activation) when used with nextgen gallery
 

@@ -1,0 +1,16 @@
+
+.wpinstagram{
+    padding:4px 0;
+    margin: 5px auto;
+}
+
+.wpinstagram.wpinstagram-shortcode img,
+.wpinstagram.wpinstagram-widget img{
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+.wpinstagram.wpinstagram-shortcode--horizontal .wpinstagram-shortcode-item,
+.wpinstagram.wpinstagram-widget--horizontal .wpinstagram-widget-item {
+    display: inline;
+}
