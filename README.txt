@@ -2,7 +2,7 @@
 Tags: wordpress, instagram, crawler, widget, instagram widget, social, instagram platform, sidebar,shortcode
 Requires at least: 3.5
 Tested up to: 4.0-alpha-20140604
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 
 Instagram Images Widget get your most recent activity at Instagram and display them in a Widget.
 
@@ -17,51 +17,14 @@ No need to create an application on Instagram, just your username.
 
 Parameters
 
-1. username **(required)** - Your instagram username;
-1. show     **(optional - default: 1)** - Number of images to show
-1. show_description **(optional - default: 0)** - Turn on/off images description (Use: 0 to hide, 1 to show)
-1. target **(optional - default: _blank)** Open images in new tab?
-1. image_size **(optional - default: 100x100)** Image size (width x height)
-1. horizontal_list **(optional - default: 0)** - Turn on/off inline photos
+1. `username` **(required)** - Your instagram username;
+1. `show`     **(optional - default: 1)** - Number of images to show
+1. `show_description` **(optional - default: 0)** - Turn on/off images description (Use: 0 to hide, 1 to show)
+1. `target` **(optional - default: _blank)** Open images in new tab?
+1. `image_size` **(optional - default: 100x100)** Image size (width x height)
+1. `horizontal_list` **(optional - default: 0)** - Turn on/off inline photos
 
-**Shortcode Examples**
-
-1. Show only 1 image:
-
-[wpinstagram_images username="@youusername"]
-
-1. Show 5 images:
-
-[wpinstagram_images username="@youusername" show=5]
-
-1. Show 5 images and descriptions:
-
-[wpinstagram_images username="@youusername" show=5 show_description=1]
-
-1. Show 5 images, descriptions and change the image size to 300 (width) x 300 (height):
-
-[wpinstagram_images username="@youusername" show=5 show_description=1 image_size="300x300"]
-
-1. Show inline photos:
-
-[wpinstagram_images username="@eduardostuart" show="2" horizontal_list=1]
-
-= CSS (Shortcode , Widget ) =
-
-
-
-.wpinstagram{}
-
-
-.wpinstagram.wpinstagram-shortcode img, .wpinstagram.wpinstagram-widget img{ }
-
-
-
-.wpinstagram.wpinstagram-shortcode--horizontal .wpinstagram-shortcode-item,
-.wpinstagram.wpinstagram-widget--horizontal .wpinstagram-widget-item {}
-
-
-
+[Examples](https://github.com/eduardostuart/wpinstagram-images-widget/wiki/Shortcodes)
 
 = Supporting future development =
 
@@ -73,8 +36,7 @@ If you like the WPInstagram Images Widget plugin, please rate and review it here
 
 = Need Support? =
 
-Follow me on [Instagram](http://instagram.com/eduardostuart) or [Twitter](http://twitter.com/eduardostuart).
-
+Follow me [Twitter](http://twitter.com/eduardostuart).
 
 == Installation ==
 

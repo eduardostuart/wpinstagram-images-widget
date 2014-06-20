@@ -11,4 +11,4 @@ class WPIInvalidPathException extends \OutOfBoundsException{}
 
 class WPICouldNotParse extends \RunTimeException{}
 class WPICoultNotGetUserDataException extends \OutOfBoundsException{}
-class WPICouldNotCreateImageDirectoryException  extends \OutOfBoundsException{}
+class WPICouldNotCreateImageDirectoryException  extends \RunTimeException{}

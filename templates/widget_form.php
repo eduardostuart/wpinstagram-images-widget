@@ -16,33 +16,26 @@
 
 <p>
 	<label for="<?php echo $field['number_of_thumbs']['id']; ?>"><?php _e( 'How many images would you like to display?' , WPINSTAGRAM_TXT_DOMAIN ); ?></label>
-	<select name="<?php echo $field['number_of_thumbs']['name']; ?>" id="<?php echo $field['number_of_thumbs']['id']; ?>">
-		<?php for($i=1;$i<=WPINSTAGRAM_MAX_IMAGES;$i++): ?>
+	<select name="<?php echo $field['number_of_thumbs']['name']; ?>" id="<?php echo $field['number_of_thumbs']['id']; ?>" class="widefat">
+		<?php for( $i=1; $i<=WPINSTAGRAM_MAX_IMAGES; $i++ ): ?>
 			<option value="<?php echo $i; ?>"<?php echo ($i == $number_of_thumbs) ? ' selected ' : ''; ?>><?php echo $i; ?></option>
 		<?php endfor; ?>
 	</select>
 </p>
 
 <p>
+	<input type="checkbox" name="<?php echo $field['new_tab']['name']; ?>" id="<?php echo $field['new_tab']['id']; ?>" value="1"<?php echo ($new_tab == true ? ' checked ' : ''); ?>/>
 	<label for="<?php echo $field['new_tab']['id']; ?>"><?php _e( 'Open image in new tab?' , WPINSTAGRAM_TXT_DOMAIN ); ?></label>
-	<input type="checkbox" name="<?php echo $field['new_tab']['name']; ?>" id="<?php echo $field['new_tab']['id']; ?>" value="1"<?php echo ($new_tab == true ? ' checked ' : ''); ?>>
-</p>
-
-<p>
+<br>
+	<input type="checkbox" name="<?php echo $field['show_description']['name']; ?>" id="<?php echo $field['show_description']['id']; ?>" value="1"<?php echo ($show_description == true ? ' checked ' : ''); ?>/>
 	<label for="<?php echo $field['show_description']['id']; ?>"><?php _e( 'Show Image Description?' , WPINSTAGRAM_TXT_DOMAIN ); ?></label>
-	<input type="checkbox" name="<?php echo $field['show_description']['name']; ?>" id="<?php echo $field['show_description']['id']; ?>" value="1"<?php echo ($show_description == true ? ' checked ' : ''); ?>>
-</p>
-
-
-<p>
+<br>
+	<input type="checkbox" name="<?php echo $field['horizontal_list']['name']; ?>" id="<?php echo $field['horizontal_list']['id']; ?>" value="1"<?php echo ($horizontal_list == true ? ' checked ' : ''); ?>/>
 	<label for="<?php echo $field['horizontal_list']['id']; ?>"><?php _e( 'Horizontal list?' , WPINSTAGRAM_TXT_DOMAIN ); ?></label>
-	<input type="checkbox" name="<?php echo $field['horizontal_list']['name']; ?>" id="<?php echo $field['horizontal_list']['id']; ?>" value="1"<?php echo ($horizontal_list == true ? ' checked ' : ''); ?>>
 </p>
 
 
-
 <p>
-	<a href="http://instagram.com/eduardostuart" target="blank" class="button-primary">Follow me on Instagram?</a>
-	<br>
-	<small>@eduardostuart</small>
+	<a href="http://twitter.com/eduardostuart" target="blank" class="button-secondary"><?php _e('Need support?',WPINSTAGRAM_TXT_DOMAIN); ?></a>
+	<a href="https://github.com/eduardostuart/wpinstagram-images-widget/wiki" target="blank" class="button-secondary"><?php _e('FAQ',WPINSTAGRAM_TXT_DOMAIN); ?></a>
 </p>
