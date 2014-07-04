@@ -2,7 +2,7 @@
 Tags: wordpress, instagram, crawler, widget, instagram widget, social, instagram platform, sidebar,shortcode
 Requires at least: 3.5
 Tested up to: 3.9.1
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 
 Instagram Images Widget get your most recent activity at Instagram and display them in a Widget.
 
@@ -33,6 +33,7 @@ If you like the WPInstagram Images Widget plugin, please rate and review it here
 = Thanks to... =
 
 [jesstech](https://github.com/jesstech) - [Github pull](https://github.com/eduardostuart/wpinstagram-images-widget/pull/1)
+[Kampfbereit](https://github.com/Kampfbereit) - [Github issue](https://github.com/eduardostuart/wpinstagram-images-widget/issues/2)
 
 = Need Support? =
 
@@ -55,6 +56,8 @@ You can either install it automatically from the WordPress admin, or do it manua
 3. Shortcode
 
 == Changelog ==
+
+v.2.0.3 - Notices - [Bugfixes](https://github.com/eduardostuart/wpinstagram-images-widget/issues/2)
 
 v.2.0.1 - Bugfixes; New option to display inline photos; Better image load/download;
 

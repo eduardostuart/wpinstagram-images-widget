@@ -3,7 +3,7 @@
  * Plugin Name: WP Instagram Images Widget
  * Plugin URI: http://eduardostuart.com.br/
  * Description: Instagram Images Widget get your most recent activity at Instagram and display them in a Widget.
- * Version: 2.0.2
+ * Version: 2.0.3
  * Author: Eduardo Stuart
  * Author URI: http://eduardostuart.com.br
  * Tested up to: 3.5
@@ -23,7 +23,7 @@ define('WPINSTAGRAM_WP_MIN_VERSION' , 3.5);
 define('WPINSTAGRAM_CACHE_ENABLED'  , true);
 define('WPINSTAGRAM_CACHE_TIME'     , 10); //minutes
 define('WPINSTAGRAM_MAX_IMAGES'     , 10);
-define('WPINSTAGRAM_VERSION'        , '2.0.2');
+define('WPINSTAGRAM_VERSION'        , '2.0.3');
 
 $upload_dir = wp_upload_dir();
 define('WPINSTAGRAM_PATH_CACHE'     , $upload_dir['basedir'] . '/wp-instagram/');
