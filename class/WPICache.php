@@ -15,13 +15,13 @@ class WPICache {
     {
         $value = array(
             'expires'  => time() + $lifetime,
-            'values'   => $values
+            'values'   => $value
         );
 
         delete_option( $key );
         add_option( $key , serialize($value) );
 
-        return $values;
+        return $value;
     }
 
     public static function delete( $key )
@@ -58,7 +58,7 @@ class WPICache {
         return null;
     }
 
-    public function hasExpired( $expires )
+    public static function hasExpired( $expires )
     {
         return ( $expires < time() );
     }

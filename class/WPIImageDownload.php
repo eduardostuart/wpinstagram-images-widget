@@ -10,6 +10,7 @@ class WPIImageDownload {
 
     public $path;
 
+
     public static function save( $url , $path , $name )
     {
 
@@ -24,7 +25,7 @@ class WPIImageDownload {
             throw new WPICouldNotCreateImageDirectoryException(__('Could not create WPInstagram image path',WPINSTAGRAM_TXT_DOMAIN));
         }
 
-        if( ( $file = $instance->fileExists() ) !== false )
+        if( $instance->fileExists() !== false )
         {
             return $instance;
         }
@@ -43,12 +44,7 @@ class WPIImageDownload {
 
     protected function fileExists()
     {
-        if( file_exists( $this->getImageFile() ) )
-        {
-            return $this->target;
-        }
-
-        return false;
+        return ( file_exists( $this->getImageFile() ) );
     }
 
     protected function makeDirectory( $directory )
