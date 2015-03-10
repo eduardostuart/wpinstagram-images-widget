@@ -84,7 +84,8 @@ class InstagramCrawler {
 
 		$response = wp_remote_get( $url,
 			array(
-				'timeout' => 60
+				'timeout' => 60,
+				'user-agent'  => 'WordPress/' . $wp_version . '; ',
 			)
 		);
 
