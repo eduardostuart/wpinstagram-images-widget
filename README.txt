@@ -1,3 +1,7 @@
+# Deprecated
+
+This plugin is deprecated and is no longer being developed.
+
 === WPInstagram Images Widget ===
 Tags: wordpress, instagram, crawler, widget, instagram widget, social, instagram platform, sidebar,shortcode
 Requires at least: 3.5
